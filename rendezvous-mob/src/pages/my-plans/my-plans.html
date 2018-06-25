@@ -1,0 +1,102 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My Plans</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+  <ion-segment  class="SwipedTabs-tabs"  >
+    <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+                        [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
+      {{tab}}
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- here is our dynamic line  "indicator"-->
+  <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
+
+  <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
+              (ionSlideWillChange)="updateIndicatorPosition()"
+              (ionSlideDidChange)="updateIndicatorPosition()"
+              (pan)="updateIndicatorPosition()"
+              [pager]="false"
+  >
+    <ion-slide>
+      <ion-card *ngFor="let outingPlan of outingPlans">
+        <ion-item>
+          <h2>{{outingPlan.planName}}</h2>
+          <p>{{outingPlan.date}}</p>
+        </ion-item>
+
+        <ion-row>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small (click)="viewOutingPlanSummary(outingPlan)">
+              <ion-icon name="md-eye"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small>
+              <ion-icon name="md-share"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card *ngFor="let dineOutPlan of dineOutPlans">
+        <ion-item>
+          <h2>{{dineOutPlan.planName}}</h2>
+          <p>{{dineOutPlan.date}}</p>
+        </ion-item>
+
+        <ion-row>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small (click)="viewDineOutPlanSummary(dineOutPlan)">
+              <ion-icon name="md-eye"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small>
+              <ion-icon name="md-share"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card *ngFor="let moviePlan of moviePlans">
+        <ion-item>
+          <h2>{{moviePlan.planName}}</h2>
+          <p>{{moviePlan.date}}</p>
+        </ion-item>
+
+        <ion-row>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small (click)="viewMoviePlanSummary(moviePlan)">
+              <ion-icon name="md-eye"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button icon-only ion-button icon-start clear small>
+              <ion-icon name="md-share"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+</ion-content>
+
+

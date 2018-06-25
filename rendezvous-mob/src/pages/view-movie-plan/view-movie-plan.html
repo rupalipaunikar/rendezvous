@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Movie Plan Summary</ion-title>
+    <ion-buttons>
+      <button ion-button block (click)="dismiss()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <h1 align="center">{{moviePlan.planName}}</h1>
+  <h6>Movie - {{moviePlan.movie}}</h6>
+  <h6>Dine out type - {{moviePlan.dineOutType}}</h6>
+  <h6>Description - {{moviePlan.description}}</h6>
+  <h6>Date - {{moviePlan.date}}</h6>
+</ion-content>

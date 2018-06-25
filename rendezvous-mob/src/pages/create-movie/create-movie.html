@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Plan a movie</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form (submit)="createPlan()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Plan name</ion-label>
+        <ion-input [(ngModel)]="moviePlan.planName" type="text" autocorrect="off" autocapitalize="none"
+                   name="planName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Movie</ion-label>
+        <ion-input [(ngModel)]="moviePlan.movie" type="text" autocorrect="off" autocapitalize="none"
+                   name="venue"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY" pickerFormat="MMMM YYYY DD" [(ngModel)]="moviePlan.date" name ="date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea rows="5" [(ngModel)]="moviePlan.description" name="description"></ion-textarea>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>CREATE</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

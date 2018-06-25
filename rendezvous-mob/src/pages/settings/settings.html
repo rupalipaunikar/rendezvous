@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <button ion-item [navPush]="aboutPage">
+        About this app
+      </button>
+      <button ion-item (click)="logout()">
+        <ion-label color="danger">Logout</ion-label>
+      </button>
+    </ion-list>
+</ion-content>

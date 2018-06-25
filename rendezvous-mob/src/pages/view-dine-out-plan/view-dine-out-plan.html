@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Dine Out Plan Summary</ion-title>
+    <ion-buttons>
+      <button ion-button block (click)="dismiss()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <h1 align="center">{{dineOutPlan.planName}}</h1>
+  <h6>Venue - {{dineOutPlan.venue}}</h6>
+  <h6>Dine out type - {{dineOutPlan.dineOutType}}</h6>
+  <h6>Description - {{dineOutPlan.description}}</h6>
+  <h6>Date - {{dineOutPlan.date}}</h6>
+</ion-content>

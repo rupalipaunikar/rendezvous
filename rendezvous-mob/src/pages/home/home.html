@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="../../assets/imgs/outing.jpg"/>
+    <button ion-button block [navPush]="createOutingPage">
+      Plan an outing
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <img src="../../assets/imgs/dine_out.jpg"/>
+    <button ion-button block [navPush]="createDineOutPage">
+      Plan a dine out
+    </button>
+  </ion-card>
+
+  <ion-card>
+    <img src="../../assets/imgs/movie.jpg"/>
+    <button ion-button block [navPush]="createMoviePage">
+      Plan a movie
+    </button>
+  </ion-card>
+</ion-content>
+
