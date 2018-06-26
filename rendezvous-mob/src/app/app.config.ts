@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 declare var AWS: any;
 declare const aws_mobile_analytics_app_id;

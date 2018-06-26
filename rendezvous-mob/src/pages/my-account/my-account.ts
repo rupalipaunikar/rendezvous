@@ -64,16 +64,40 @@ export class MyAccountPage {
   };
 
   selectAvatar() {
-    const options: CameraOptions = {
+    const FromFileCameraOptions: CameraOptions = {
       quality: 100,
       targetHeight: 200,
       targetWidth: 200,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     };
 
-    this.camera.getPicture(options).then((imageData) => {
+    this.camera.getPicture(FromFileCameraOptions).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      this.selectedPhoto = this.dataURItoBlob('data:image/jpeg;base64,' + imageData);
+      this.upload();
+    }, (err) => {
+      this.avatarInput.nativeElement.click();
+      // Handle error
+    });
+  }
+
+  takePicture() {
+    const takePictureOptions: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetWidth: 200,
+      targetHeight: 200,
+      correctOrientation: true,
+      mediaType: this.camera.MediaType.PICTURE
+    };
+
+    this.camera.getPicture(takePictureOptions).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       this.selectedPhoto = this.dataURItoBlob('data:image/jpeg;base64,' + imageData);
@@ -102,7 +126,7 @@ export class MyAccountPage {
     let loading = this.loadingCtrl.create({
       content: 'Uploading image...'
     });
-    loading.present();
+    loading.present().then();
 
     if (this.selectedPhoto) {
       this.s3.upload({
@@ -112,13 +136,13 @@ export class MyAccountPage {
       }).promise().then((data) => {
         this.refreshAvatar();
         console.log('upload complete:', data);
-        loading.dismiss();
+        loading.dismiss().then();
       }, err => {
         console.log('upload failed....', err);
-        loading.dismiss();
+        loading.dismiss().then();
       });
     } else {
-      loading.dismiss();
+      loading.dismiss().then();
     }
   }
 }

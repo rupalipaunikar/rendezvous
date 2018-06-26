@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {DineOutPlanServiceProvider} from "../../providers/dine-out-plan-service/dine-out-plan-service";
 
@@ -20,7 +20,7 @@ export class DineOutPlan {
 })
 export class CreateDineOutPage {
 
-  public dineOutPlan : DineOutPlan;
+  public dineOutPlan: DineOutPlan;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
               public navParams: NavParams,
@@ -28,7 +28,7 @@ export class CreateDineOutPage {
     this.dineOutPlan = new DineOutPlan();
   }
 
-  createPlan(){
+  createPlan() {
     this.dineOutPlan.userId = AWS.config.credentials.identityId;
     this.dineOutPlanService.saveDineOutPlan(this.dineOutPlan).subscribe(data => console.log(data));
     this.showCreatePlanAlert();

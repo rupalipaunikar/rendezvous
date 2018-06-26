@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Config } from 'ionic-angular';
+import {Injectable} from '@angular/core';
+import {Config} from 'ionic-angular';
 
 declare var AWS: any;
 declare var AWSCognito: any;

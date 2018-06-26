@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ViewOutingPlanPage } from './view-outing-plan';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {ViewOutingPlanPage} from './view-outing-plan';
 
 @NgModule({
   declarations: [
@@ -10,4 +10,5 @@ import { ViewOutingPlanPage } from './view-outing-plan';
     IonicPageModule.forChild(ViewOutingPlanPage),
   ],
 })
-export class ViewOutingPlanPageModule {}
+export class ViewOutingPlanPageModule {
+}

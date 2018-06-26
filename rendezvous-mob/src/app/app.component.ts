@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
-import { Config, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {Component} from '@angular/core';
+import {Config, Platform} from 'ionic-angular';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
-import { LoginPage } from "../pages/login/login";
-import { MenuPage } from "../pages/menu/menu";
+import {LoginPage} from "../pages/login/login";
+import {MenuPage} from "../pages/menu/menu";
 
-import { User } from '../providers/user';
+import {User} from '../providers/user';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = null;
+  rootPage: any = null;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, user: User, public config: Config) {
-    let globalActions = function() {
+    let globalActions = function () {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

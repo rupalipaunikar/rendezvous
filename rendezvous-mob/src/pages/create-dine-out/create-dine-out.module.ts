@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { CreateDineOutPage } from './create-dine-out';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {CreateDineOutPage} from './create-dine-out';
 
 @NgModule({
   declarations: [
@@ -10,4 +10,5 @@ import { CreateDineOutPage } from './create-dine-out';
     IonicPageModule.forChild(CreateDineOutPage),
   ],
 })
-export class CreateDineOutPageModule {}
+export class CreateDineOutPageModule {
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {MoviePlanServiceProvider} from "../../providers/movie-plan-service/movie-plan-service";
 
@@ -19,7 +19,7 @@ export class MoviePlan {
 })
 export class CreateMoviePage {
 
-  public moviePlan : MoviePlan;
+  public moviePlan: MoviePlan;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
               public navParams: NavParams,
@@ -27,7 +27,7 @@ export class CreateMoviePage {
     this.moviePlan = new MoviePlan();
   }
 
-  createPlan(){
+  createPlan() {
     this.moviePlan.userId = AWS.config.credentials.identityId;
     this.moviePlanService.saveMoviePlan(this.moviePlan).subscribe(data => console.log(data));
     this.showCreatePlanAlert();

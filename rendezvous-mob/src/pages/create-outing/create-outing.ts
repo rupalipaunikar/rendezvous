@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {OutingPlanServiceProvider} from "../../providers/outing-plan-service/outing-plan-service";
 
@@ -19,7 +19,7 @@ export class OutingPlan {
 })
 export class CreateOutingPage {
 
-  public outingPlan : OutingPlan;
+  public outingPlan: OutingPlan;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
               public navParams: NavParams,
@@ -27,7 +27,7 @@ export class CreateOutingPage {
     this.outingPlan = new OutingPlan();
   }
 
-  createPlan(){
+  createPlan() {
     this.outingPlan.userId = AWS.config.credentials.identityId;
     this.outingPlanService.saveOutingPlan(this.outingPlan).subscribe(data => console.log(data));
     this.showCreatePlanAlert();

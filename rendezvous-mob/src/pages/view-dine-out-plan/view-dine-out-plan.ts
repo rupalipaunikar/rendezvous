@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavParams, ViewController} from 'ionic-angular';
 import {DineOutPlan} from "../create-dine-out/create-dine-out";
 
@@ -14,12 +14,12 @@ export class ViewDineOutPlanPage {
   constructor(public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
-  ionViewWillLoad(){
+  ionViewWillLoad() {
     this.dineOutPlan = this.navParams.data;
     console.log(this.dineOutPlan)
   }
 
   dismiss() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss().then();
   }
 }

@@ -1,6 +1,6 @@
 <ion-content>
   <div text-center class="logo">
-    <img src="assets/ionic-aws-logo.png" />
+    <img src="assets/ionic-aws-logo.png"/>
   </div>
   <form (submit)="signup()">
     <p *ngIf="error" style="text-align: center">{{error.message}}</p>
@@ -8,7 +8,8 @@
 
       <ion-item>
         <ion-label floating>Username</ion-label>
-        <ion-input type="text" [(ngModel)]="userDetails.username" autocorrect="off" autocapitalize="none" name="username"></ion-input>
+        <ion-input type="text" [(ngModel)]="userDetails.username" autocorrect="off" autocapitalize="none"
+                   name="username"></ion-input>
       </ion-item>
 
       <ion-item>

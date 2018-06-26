@@ -29,6 +29,13 @@ import {MoviePlanServiceProvider} from '../providers/movie-plan-service/movie-pl
 import {DineOutPlanServiceProvider} from '../providers/dine-out-plan-service/dine-out-plan-service';
 import {ViewMoviePlanPage} from "../pages/view-movie-plan/view-movie-plan";
 import {ViewDineOutPlanPage} from "../pages/view-dine-out-plan/view-dine-out-plan";
+import {SocialSharing} from '@ionic-native/social-sharing';
+import {StreamingMedia} from '@ionic-native/streaming-media';
+import {SearchPlacePage} from "../pages/search-place/search-place";
+import {SpinnerProvider} from "../providers/spinner/spinner";
+import {MapProvider} from "../providers/map/map";
+import {Geolocation} from '@ionic-native/geolocation';
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -45,13 +52,15 @@ import {ViewDineOutPlanPage} from "../pages/view-dine-out-plan/view-dine-out-pla
     AboutPage,
     ViewOutingPlanPage,
     ViewMoviePlanPage,
-    ViewDineOutPlanPage
+    ViewDineOutPlanPage,
+    SearchPlacePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,7 +77,8 @@ import {ViewDineOutPlanPage} from "../pages/view-dine-out-plan/view-dine-out-pla
     AboutPage,
     ViewOutingPlanPage,
     ViewMoviePlanPage,
-    ViewDineOutPlanPage
+    ViewDineOutPlanPage,
+    SearchPlacePage
   ],
   providers: [
     StatusBar,
@@ -80,7 +90,12 @@ import {ViewDineOutPlanPage} from "../pages/view-dine-out-plan/view-dine-out-pla
     DynamoDB,
     OutingPlanServiceProvider,
     MoviePlanServiceProvider,
-    DineOutPlanServiceProvider
+    DineOutPlanServiceProvider,
+    SocialSharing,
+    StreamingMedia,
+    Geolocation,
+    SpinnerProvider,
+    MapProvider
   ]
 })
 export class AppModule {

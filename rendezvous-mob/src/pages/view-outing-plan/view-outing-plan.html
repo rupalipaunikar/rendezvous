@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>Outing Plan Summary</ion-title>
     <ion-buttons>
-      <button ion-button block (click)="dismiss()">Close</button>
+      <button ion-button block right (click)="dismiss()">Close</button>
     </ion-buttons>
   </ion-navbar>
 
@@ -14,4 +14,8 @@
   <h6>Venue - {{outingPlan.venue}}</h6>
   <h6>Description - {{outingPlan.description}}</h6>
   <h6>Date - {{outingPlan.date}}</h6>
+
+  <ion-buttons>
+    <button ion-button (click)="searchPlace()">Search Place</button>
+  </ion-buttons>
 </ion-content>

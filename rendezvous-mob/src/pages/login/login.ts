@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { NavController, LoadingController } from 'ionic-angular';
+import {NavController, LoadingController} from 'ionic-angular';
 
-import { SignupPage } from '../signup/signup';
-import { ConfirmPage } from '../confirm/confirm';
+import {SignupPage} from '../signup/signup';
+import {ConfirmPage} from '../confirm/confirm';
 
-import { User } from '../../providers/providers';
+import {User} from '../../providers/providers';
 import {MenuPage} from "../menu/menu";
 
 export class LoginDetails {
@@ -42,7 +42,7 @@ export class LoginPage {
     }).catch((err) => {
       if (err.message === "User is not confirmed.") {
         loading.dismiss();
-        this.navCtrl.push(ConfirmPage, { 'username': details.username });
+        this.navCtrl.push(ConfirmPage, {'username': details.username});
       }
       console.log('errrror', err);
       loading.dismiss();

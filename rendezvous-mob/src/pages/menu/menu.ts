@@ -21,7 +21,13 @@ export class MenuPage {
   pages: PageInterface[] = [
     {title: 'Home', pageName: 'HomePage', icon: 'md-home'},
     {title: 'My Plans', pageName: 'TabsPage', tabComponent: 'MyPlansPage', index: 0, icon: 'md-apps'},
-    {title: 'Notifications', pageName: 'TabsPage', tabComponent: 'NotificationsPage', index: 1, icon: 'md-notifications'},
+    {
+      title: 'Notifications',
+      pageName: 'TabsPage',
+      tabComponent: 'NotificationsPage',
+      index: 1,
+      icon: 'md-notifications'
+    },
     {title: 'My Account', pageName: 'MyAccountPage', icon: 'md-person'},
     {title: 'Settings', pageName: 'SettingsPage', icon: 'md-settings'},
     {title: 'Help', pageName: 'HelpPage', icon: 'md-help'},

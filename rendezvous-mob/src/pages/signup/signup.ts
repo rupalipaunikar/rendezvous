@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { NavController, LoadingController } from 'ionic-angular';
+import {NavController, LoadingController} from 'ionic-angular';
 
-import { LoginPage } from '../login/login';
-import { ConfirmPage } from '../confirm/confirm';
+import {LoginPage} from '../login/login';
+import {ConfirmPage} from '../confirm/confirm';
 
-import { User } from '../../providers/user';
+import {User} from '../../providers/user';
 
 export class UserDetails {
-    username: string;
-    email: string;
-    password: string;
+  username: string;
+  email: string;
+  password: string;
 }
 
 @Component({
@@ -26,7 +26,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
               public user: User,
               public loadingCtrl: LoadingController) {
-   this.userDetails = new UserDetails();
+    this.userDetails = new UserDetails();
   }
 
   signup() {
@@ -41,7 +41,7 @@ export class SignupPage {
     console.log('register');
     this.user.register(details.username, details.password, {'email': details.email}).then((user) => {
       loading.dismiss();
-      this.navCtrl.push(ConfirmPage, { username: details.username });
+      this.navCtrl.push(ConfirmPage, {username: details.username});
     }).catch((err) => {
       loading.dismiss();
       this.error = err;
