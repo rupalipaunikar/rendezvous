@@ -51,12 +51,11 @@ export class SearchPlacePage {
 
   initializeMap() {
     let that = this;
-    that.currentLocation();
     this.zone.run(() => {
       let mapEle = this.mapElement.nativeElement;
       this.map = new google.maps.Map(mapEle, {
         zoom: 16,
-        center: {lat: 12.971599, lng: 77.594563},
+        center: {lat: 18.5547894, lng: 73.8124869},
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: [{
           "featureType": "water",
@@ -161,18 +160,13 @@ export class SearchPlacePage {
 
   currentLocation() {
     this.spinner.load();
-    this.geolocation.getCurrentPosition().then((position) => {
-      let latLngObj = {'lat': position.coords.latitude, 'long': position.coords.longitude};
-      // Display  Marker
-      this.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-      this.getAddress(latLngObj);
-      this.spinner.dismiss();
-      localStorage.setItem('current_latlong', JSON.stringify(latLngObj));
-      return latLngObj;
-
-    }, (err) => {
-      console.log(err);
-    });
+    let latLngObj = {'lat': 18.5547894, 'long': 73.8124869};
+    // Display  Marker
+    this.map.setCenter(new google.maps.LatLng(latLngObj.lat, latLngObj.long));
+    this.getAddress(latLngObj);
+    this.spinner.dismiss();
+    localStorage.setItem('current_latlong', JSON.stringify(latLngObj));
+    return latLngObj;
   }
 
   getAddress(latLngObj) {
