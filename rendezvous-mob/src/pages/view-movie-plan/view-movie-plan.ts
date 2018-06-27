@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {MoviePlan} from "../create-movie/create-movie";
+import {SearchPlacePage} from "../search-place/search-place";
 
 @IonicPage()
 @Component({
@@ -11,7 +12,8 @@ export class ViewMoviePlanPage {
 
   public moviePlan: MoviePlan;
 
-  constructor(public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navParams: NavParams, public viewCtrl: ViewController,
+              private navCtrl: NavController) {
   }
 
   ionViewWillLoad() {
@@ -21,5 +23,9 @@ export class ViewMoviePlanPage {
 
   dismiss() {
     this.viewCtrl.dismiss().then();
+  }
+
+  searchPlace() {
+    this.navCtrl.push(SearchPlacePage).then();
   }
 }

@@ -253,8 +253,4 @@ export class SearchPlacePage {
   errorAlert(title, message) {
     alert('Error in Alert');
   }
-
-  dismiss() {
-    this.viewCtrl.dismiss().then();
-  }
 }

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {DineOutPlan} from "../create-dine-out/create-dine-out";
+import {SearchPlacePage} from "../search-place/search-place";
 
 @IonicPage()
 @Component({
@@ -11,7 +12,8 @@ export class ViewDineOutPlanPage {
 
   public dineOutPlan: DineOutPlan;
 
-  constructor(public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navParams: NavParams, public viewCtrl: ViewController,
+              private navCtrl: NavController) {
   }
 
   ionViewWillLoad() {
@@ -21,5 +23,9 @@ export class ViewDineOutPlanPage {
 
   dismiss() {
     this.viewCtrl.dismiss().then();
+  }
+
+  searchPlace() {
+    this.navCtrl.push(SearchPlacePage).then();
   }
 }

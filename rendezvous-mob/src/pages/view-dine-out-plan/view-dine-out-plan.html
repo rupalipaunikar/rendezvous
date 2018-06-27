@@ -3,16 +3,36 @@
   <ion-navbar>
     <ion-title>Dine Out Plan Summary</ion-title>
     <ion-buttons>
-      <button ion-button block (click)="dismiss()">Close</button>
+      <button ion-button (click)="dismiss()">Close</button>
     </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
-  <h1 align="center">{{dineOutPlan.planName}}</h1>
-  <h6>Venue - {{dineOutPlan.venue}}</h6>
-  <h6>Dine out type - {{dineOutPlan.dineOutType}}</h6>
-  <h6>Description - {{dineOutPlan.description}}</h6>
-  <h6>Date - {{dineOutPlan.date}}</h6>
+  <div>
+    <h1 align="center">{{dineOutPlan.planName}}</h1>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4><h5>Venue</h5></ion-col>
+      <ion-col col-8><h6>{{dineOutPlan.venue}}</h6></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4><h5>Dine out type</h5></ion-col>
+      <ion-col col-8><h6>{{dineOutPlan.dineOutType}}</h6></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4><h5>Date</h5></ion-col>
+      <ion-col col-8><h6>{{dineOutPlan.date}}</h6></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4><h5>Description</h5></ion-col>
+      <ion-col col-8><h6>{{dineOutPlan.description}}</h6></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-buttons>
+    <button ion-button align-items-center (click)="searchPlace()">Search Place</button>
+  </ion-buttons>
 </ion-content>

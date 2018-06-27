@@ -3,19 +3,32 @@
   <ion-navbar>
     <ion-title>Outing Plan Summary</ion-title>
     <ion-buttons>
-      <button ion-button block right (click)="dismiss()">Close</button>
+      <button ion-button (click)="dismiss()">Close</button>
     </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
-  <h1 align="center">{{outingPlan.planName}}</h1>
-  <h6>Venue - {{outingPlan.venue}}</h6>
-  <h6>Description - {{outingPlan.description}}</h6>
-  <h6>Date - {{outingPlan.date}}</h6>
+  <div>
+    <h1 align="center">{{outingPlan.planName}}</h1>
+  </div>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4><h5>Venue</h5></ion-col>
+      <ion-col col-8><h6>{{outingPlan.venue}}</h6></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4><h5>Date</h5></ion-col>
+      <ion-col col-8><h6>{{outingPlan.date}}</h6></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4><h5>Description</h5></ion-col>
+      <ion-col col-8><h6>{{outingPlan.description}}</h6></ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-buttons>
-    <button ion-button (click)="searchPlace()">Search Place</button>
+    <button ion-button align-items-center (click)="searchPlace()">Search Place</button>
   </ion-buttons>
 </ion-content>
