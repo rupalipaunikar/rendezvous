@@ -5,6 +5,10 @@ import com.rendezvous.repository.OutingPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 /**
  * Class to hold APIs related to outing plans.
  *
@@ -33,7 +37,7 @@ public class OutingPlanController {
      */
     @RequestMapping(value = "outingPlan", method = RequestMethod.POST)
     public OutingPlan createOutingPlan(@RequestBody OutingPlan outingPlan) {
-        return outingPlanRepository.save(outingPlan);
+        return new OutingPlan("1", "1", "Plan 1", "Mahabaleshwar", "desc", new Date());
     }
 
     /**
@@ -44,6 +48,11 @@ public class OutingPlanController {
      */
     @RequestMapping(value = "outingPlan/search", method = RequestMethod.GET)
     public Iterable<OutingPlan> outingPlanSearch(@RequestParam("userId") final String userId) {
-        return outingPlanRepository.findByUserId(userId);
+        List<OutingPlan> outingPlans = new ArrayList<>();
+        outingPlans.add(new OutingPlan("1", "1", "Plan 1", "Mahabaleshwar", "desc", new Date()));
+        outingPlans.add(new OutingPlan("2", "1", "Plan 2", "Matheran", "desc", new Date()));
+        outingPlans.add(new OutingPlan("3", "1", "Plan 3", "Mulshi", "desc", new Date()));
+        outingPlans.add(new OutingPlan("4", "1", "Plan 4", "Rupali",  "desc", new Date()));
+        return outingPlans;
     }
 }
