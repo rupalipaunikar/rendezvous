@@ -37,8 +37,8 @@ public class OutingPlanController {
     @RequestMapping(value = "outingPlan/search", method = RequestMethod.GET)
     public Iterable<OutingPlan> outingPlanSearch(@RequestParam("userId") final String userId) {
         List<OutingPlan> outingPlans = new ArrayList<>();
-        outingPlans.add(new OutingPlan("1", "1", "Greece Plan", "Greece", "desc", new Date()));
-        outingPlans.add(new OutingPlan("2", "1", "Europe Plan", "Europe", "desc", new Date()));
+        outingPlans.add(new OutingPlan("1", "1", "Singapore", "Singapore", "desc", new Date()));
+        outingPlans.add(new OutingPlan("2", "1", "UK Plan", "London", "Lets have fun", new Date()));
         outingPlans.add(new OutingPlan("3", "1", "Mulshi", "Mulshi", "desc", new Date()));
         outingPlans.add(new OutingPlan("4", "1", "Lonavala", "Lonavala",  "desc", new Date()));
         return outingPlans;
