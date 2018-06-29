@@ -1,9 +1,12 @@
 package com.rendezvous.controller;
 
 import com.rendezvous.entity.DineOutPlan;
-import com.rendezvous.repository.DineOutPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Class to hold APIs related to dine out plans.
@@ -14,17 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DineOutPlanController {
 
-    private DineOutPlanRepository dineOutPlanRepository;
-
-    public DineOutPlanRepository getDineOutPlanRepository() {
-        return dineOutPlanRepository;
-    }
-
-    @Autowired
-    public void setDineOutPlanRepository(final DineOutPlanRepository dineOutPlanRepository) {
-        this.dineOutPlanRepository = dineOutPlanRepository;
-    }
-
     /**
      * API to create a dine out plan
      *
@@ -33,7 +25,7 @@ public class DineOutPlanController {
      */
     @RequestMapping(value = "dineOutPlan", method = RequestMethod.POST)
     public DineOutPlan createDineOutPlan(@RequestBody final DineOutPlan dineOutPlan) {
-        return dineOutPlanRepository.save(dineOutPlan);
+        return new DineOutPlan("1", "1", "Plan 1", "Lunch", "BBQ", "desc", new Date());
     }
 
     /**
@@ -44,6 +36,11 @@ public class DineOutPlanController {
      */
     @RequestMapping(value = "dineOutPlan/search", method = RequestMethod.GET)
     public Iterable<DineOutPlan> dineOutPlanSearch(@RequestParam("userId") final String userId) {
-        return dineOutPlanRepository.findByUserId(userId);
+        List<DineOutPlan> dineOutPlans = new ArrayList<>();
+        dineOutPlans.add(new DineOutPlan("1", "1", "BBQ", "Lunch", "BBQ", "desc", new Date()));
+        dineOutPlans.add(new DineOutPlan("2", "1", "Pizza hut", "Dinner", "Pizza hut", "desc", new Date()));
+        dineOutPlans.add(new DineOutPlan("3", "1", "Faasos", "Breakfast", "Faasos", "desc", new Date()));
+        dineOutPlans.add(new DineOutPlan("4", "1", "Cream Stone", "Brunch", "Cream Stone", "desc", new Date()));
+        return dineOutPlans;
     }
 }

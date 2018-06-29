@@ -24,6 +24,17 @@ public class MoviePlan {
     @JsonSerialize(using = JsonDateSerializer.class)
     private Date date;
 
+    public MoviePlan(String planId, String userId, String planName, String movie, String description, Date date) {
+        this.planId = planId;
+        this.userId = userId;
+        this.planName = planName;
+        this.movie = movie;
+        this.description = description;
+        this.date = date;
+    }
+
+    public MoviePlan(){}
+
     @DynamoDBAttribute
     @DynamoDBIndexHashKey(globalSecondaryIndexName = "userIdIndex")
     public String getUserId() {

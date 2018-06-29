@@ -1,9 +1,12 @@
 package com.rendezvous.controller;
 
 import com.rendezvous.entity.MoviePlan;
-import com.rendezvous.repository.MoviePlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Class to hold APIs related to movie plans.
@@ -14,17 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MoviePlanController {
 
-    private MoviePlanRepository moviePlanRepository;
-
-    public MoviePlanRepository getMoviePlanRepository() {
-        return moviePlanRepository;
-    }
-
-    @Autowired
-    public void setMoviePlanRepository(final MoviePlanRepository moviePlanRepository) {
-        this.moviePlanRepository = moviePlanRepository;
-    }
-
     /**
      * API to create a dine out plan
      *
@@ -33,7 +25,7 @@ public class MoviePlanController {
      */
     @RequestMapping(value = "moviePlan", method = RequestMethod.POST)
     public MoviePlan createMoviePlan(@RequestBody final MoviePlan moviePlan) {
-        return moviePlanRepository.save(moviePlan);
+        return new MoviePlan("1", "1", "Plan 1", "SpiderMan", "desc", new Date());
     }
 
     /**
@@ -44,6 +36,11 @@ public class MoviePlanController {
      */
     @RequestMapping(value = "moviePlan/search", method = RequestMethod.GET)
     public Iterable<MoviePlan> moviePlanSearch(@RequestParam("userId") final String userId) {
-        return moviePlanRepository.findByUserId(userId);
+        List<MoviePlan> moviePlans = new ArrayList<>();
+        moviePlans.add(new MoviePlan("1", "1", "SpiderMan", "SpiderMan", "desc", new Date()));
+        moviePlans.add(new MoviePlan("2", "1", "Parmanu", "Parmanu", "desc", new Date()));
+        moviePlans.add(new MoviePlan("3", "1", "Revenge", "Revenge", "desc", new Date()));
+        moviePlans.add(new MoviePlan("4", "1", "BatMan", "BatMan",  "desc", new Date()));
+        return moviePlans;
     }
 }

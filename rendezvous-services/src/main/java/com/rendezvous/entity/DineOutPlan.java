@@ -25,6 +25,18 @@ public class DineOutPlan {
     @JsonSerialize(using = JsonDateSerializer.class)
     private Date date;
 
+    public DineOutPlan(){}
+
+    public DineOutPlan(String planId, String userId, String planName, String dineOutType, String venue, String description, Date date) {
+        this.planId = planId;
+        this.userId = userId;
+        this.planName = planName;
+        this.dineOutType = dineOutType;
+        this.venue = venue;
+        this.description = description;
+        this.date = date;
+    }
+
     @DynamoDBAttribute
     @DynamoDBIndexHashKey(globalSecondaryIndexName = "userIdIndex")
     public String getUserId() {
