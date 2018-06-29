@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-title>Movie Plan Summary</ion-title>
-    <ion-buttons>
+    <ion-buttons end>
       <button ion-button (click)="dismiss()">Close</button>
     </ion-buttons>
   </ion-navbar>
@@ -16,7 +16,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-4><h5>Venue</h5></ion-col>
+      <ion-col col-4><h5>Movie</h5></ion-col>
       <ion-col col-8><h6>{{moviePlan.movie}}</h6></ion-col>
     </ion-row>
     <ion-row>
@@ -28,7 +28,4 @@
       <ion-col col-8><h6>{{moviePlan.description}}</h6></ion-col>
     </ion-row>
   </ion-grid>
-  <ion-buttons>
-    <button ion-button align-items-center (click)="searchPlace()">Search Place</button>
-  </ion-buttons>
 </ion-content>

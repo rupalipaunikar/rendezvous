@@ -14,7 +14,7 @@ export class MoviePlanServiceProvider {
 
   getMoviePlans() {
     let userId = AWS.config.credentials.identityId;
-    return this.http.get("http://172.26.26.15:8080/rendezvous-0.0.1-SNAPSHOT/moviePlan/search?userId=" + userId)
+    return this.http.get("http://rendezvous-env.nmm7wbi53a.us-east-1.elasticbeanstalk.com/moviePlan/search?userId=" + userId)
       .do((res: MoviePlan) => console.log(res))
   }
 
@@ -22,7 +22,7 @@ export class MoviePlanServiceProvider {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Accept', 'application/json');
 
-    return this.http.post("http://172.26.26.15:8080/rendezvous-0.0.1-SNAPSHOT/moviePlan",
+    return this.http.post("http://rendezvous-env.nmm7wbi53a.us-east-1.elasticbeanstalk.com/moviePlan",
       JSON.stringify(moviePlan), {headers})
       .do((res: Response) => console.log(res));
   }

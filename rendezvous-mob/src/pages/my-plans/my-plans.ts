@@ -72,14 +72,8 @@ export class MyPlansPage {
   }
 
   getOutingPlans(userId: string) {
-    this.outingPlans = [
-      {"userId": "1", "planName": "Plan 1", "venue": "Available", "description": "Available", "date": new Date()},
-      {"userId": "1", "planName": "Plan 2", "venue": "Available", "description": "Available", "date": new Date()},
-      {"userId": "1", "planName": "Plan 3", "venue": "Available", "description": "Available", "date": new Date()},
-    ];
-
-    //this.outingPlanService.getOutingPlans().subscribe(data => this.outingPlans = data);
-    //console.log(this.outingPlans);
+    this.outingPlanService.getOutingPlans().subscribe(data => this.outingPlans = data);
+    console.log(this.outingPlans);
   }
 
   getDineOutPlans(userId: string) {
