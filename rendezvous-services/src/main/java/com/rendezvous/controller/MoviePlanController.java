@@ -39,7 +39,7 @@ public class MoviePlanController {
         List<MoviePlan> moviePlans = new ArrayList<>();
         moviePlans.add(new MoviePlan("1", "1", "SpiderMan", "SpiderMan", "desc", new Date()));
         moviePlans.add(new MoviePlan("2", "1", "Parmanu", "Parmanu", "desc", new Date()));
-        moviePlans.add(new MoviePlan("3", "1", "Revenge", "Revenge", "desc", new Date()));
+        moviePlans.add(new MoviePlan("3", "1", "Batman", "Revenge", "desc", new Date()));
         moviePlans.add(new MoviePlan("4", "1", "Kaarwaan", "Kaarwaan",  "descr", new Date()));
         return moviePlans;
     }
