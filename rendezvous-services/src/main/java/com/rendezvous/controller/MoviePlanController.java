@@ -40,7 +40,7 @@ public class MoviePlanController {
         moviePlans.add(new MoviePlan("1", "1", "SpiderMan", "SpiderMan", "desc", new Date()));
         moviePlans.add(new MoviePlan("2", "1", "Parmanu", "Parmanu", "desc", new Date()));
         moviePlans.add(new MoviePlan("3", "1", "Revenge", "Revenge", "desc", new Date()));
-        moviePlans.add(new MoviePlan("4", "1", "Kaarwaan", "Kaarwaan",  "desc", new Date()));
+        moviePlans.add(new MoviePlan("4", "1", "Kaarwaan", "Kaarwaan",  "descr", new Date()));
         return moviePlans;
     }
 }
