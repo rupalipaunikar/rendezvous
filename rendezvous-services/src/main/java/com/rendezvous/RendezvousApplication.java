@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class RendezvousApplication extends ServletInitializer {
 
     public static void main(final String[] args) throws Exception {
-        SpringApplication.run(RendezvousApplication.class, args);
+        SpringApplication.run(RendezvousApplication.class, args); 
     }
 }
 
